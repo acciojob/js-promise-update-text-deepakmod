@@ -1,11 +1,14 @@
 //your JS code here. If required.
-let div=document.getElementById("output");
-function promiseCreation(){
-	let promise=new Promise((resolve)=>{
-		setTimeout(()=>{resolve("Hello,world")},1000);
-	});
-	promise.then(updateFunction);
-	function updateFunction(str){
-		div.textContent=str;
-	}
+function sayHello() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Hello, world!");
+    }, 1000);
+  });
 }
+
+
+const outputElement = document.getElementById("output");
+sayHello().then((message) => {
+  outputElement.textContent = message;
+});
